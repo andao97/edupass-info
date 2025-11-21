@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Brainmate - Your Smart Exam Helper</title>
+    <meta
+      name="description"
+      content="Meet Brainmate, your AI-powered exam assistant designed to help you understand questions and make learning smoother."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+      /* --------------------
+         BASIC PAGE LAYOUT
+      --------------------- */
+      body {
+        margin: 0;
+        font-family: 'Poppins', sans-serif;
+        background: #f9f9f9;
+        color: #333;
+        padding: 20px;
+      }
+
+      .brainmate-container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 30px 20px;
+        background: #fff;
+        border-radius: 16px;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+      }
+
+      .illustration-box {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      .illustration-image {
+        width: 100%;
+      }
+
+      .section-title {
+        font-size: 28px;
+        margin-bottom: 12px;
+      }
+
+      .subsection-title {
+        font-size: 20px;
+        margin-top: 25px;
+        margin-bottom: 8px;
+      }
+
+      .section-text {
+        line-height: 1.6;
+        margin-bottom: 12px;
+      }
+
+      ul.tips-list {
+        margin-top: 10px;
+        margin-bottom: 20px;
+        padding-left: 20px;
+      }
+
+      ul li {
+        margin-bottom: 8px;
+        line-height: 1.5;
+      }
+
+      /* --------------------
+         TAB SYSTEM (NO JS)
+      --------------------- */
+
+      /* Hide radio inputs */
+      input[name="brainmate-tabs"] {
+        display: none;
+      }
+
+      .tabs-wrapper {
+        margin-bottom: 25px;
+      }
+
+      .tabs-navigation {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+
+      /* Tab buttons (labels) */
+      .tab-btn {
+        padding: 10px 18px;
+        background: #e9e9e9;
+        border-radius: 8px;
+        cursor: pointer;
+        font-weight: 600;
+        transition: 0.2s ease;
+      }
+
+      .tab-btn:hover {
+        background: #dcdcdc;
+      }
+
+      /* Tab content hidden by default */
+      .tab-content {
+        display: none;
+        background: #fff;
+        padding: 25px;
+        border-radius: 12px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+      }
+
+      /* Show correct content when radio checked */
+      #tab-about:checked ~ .tab-content-wrapper #content-about {
+        display: block;
+      }
+      #tab-how:checked ~ .tab-content-wrapper #content-how {
+        display: block;
+      }
+      #tab-accuracy:checked ~ .tab-content-wrapper #content-accuracy {
+        display: block;
+      }
+
+      /* Highlight active tab */
+      #tab-about:checked ~ .tabs-wrapper .tabs-navigation label[for="tab-about"],
+      #tab-how:checked ~ .tabs-wrapper .tabs-navigation label[for="tab-how"],
+      #tab-accuracy:checked
+        ~ .tabs-wrapper
+        .tabs-navigation
+        label[for="tab-accuracy"] {
+        background: #0056ff;
+        color: white;
+      }
+
+      /* Footer styling */
+      footer {
+        background: #fff;
+        padding: 40px 20px;
+        margin-top: 60px;
+        border-top: 1px solid #e0e0e0;
+      }
+
+      .footer-container {
+        max-width: 900px;
+        margin: 0 auto;
+        text-align: center;
+      }
+
+      .footer-links {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        flex-wrap: wrap;
+        margin-bottom: 20px;
+      }
+
+      .footer-links a {
+        color: #0056ff;
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 500;
+        transition: color 0.2s ease;
+      }
+
+      .footer-links a:hover {
+        color: #003dbb;
+        text-decoration: underline;
+      }
+
+      .footer-copyright {
+        color: #777;
+        font-size: 14px;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="brainmate-container">
+
+      <!-- HIDDEN RADIO TABS -->
+      <input type="radio" id="tab-about" name="brainmate-tabs" checked />
+      <input type="radio" id="tab-how" name="brainmate-tabs" />
+      <input type="radio" id="tab-accuracy" name="brainmate-tabs" />
+
+      <!-- TAB NAVIGATION -->
+      <div class="tabs-wrapper">
+        <div class="tabs-navigation">
+          <label for="tab-about" class="tab-btn">About Brainmate</label>
+          <label for="tab-how" class="tab-btn">How To Use Brainmate</label>
+          <label for="tab-accuracy" class="tab-btn">Accuracy Disclaimer</label>
+        </div>
+      </div>
+
+      <!-- TAB CONTENTS -->
+      <div class="tab-content-wrapper">
+
+        <!-- ABOUT BRAINMATE TAB -->
+        <div class="tab-content" id="content-about">
+          <div class="illustration-box">
+            <img
+              src="/assets/brainmate-info-1.png"
+              class="illustration-image"
+              alt="Brainmate AI Robot Assistant"
+            />
+          </div>
+
+          <h2 class="section-title">📢 Meet Brainmate – Your Smart Exam Helper!</h2>
+
+          <p class="section-text">
+            Studying for an exam can feel overwhelming, but you don’t have to do it alone anymore. Brainmate is your built-in AI assistant designed to help you understand the questions inside the app and make learning smoother. Think of it as a calm, knowledgeable friend who’s always ready to explain the “why” behind every answer.
+          </p>
+
+          <h3 class="subsection-title">What is Brainmate?</h3>
+          <p class="section-text">
+            Brainmate isn’t a general chatbot that chats about everything—it’s focused entirely on your study questions. Its purpose is simple: to help you understand each question deeply, recognize common traps, and strengthen your exam readiness. Brainmate combines AI language understanding with subject-specific knowledge to guide you whenever you’re stuck.
+          </p>
+
+          <h3 class="subsection-title">How Brainmate Works</h3>
+          <p class="section-text">
+            At its core, Brainmate is powered by <strong>advanced AI technology based on ChatGPT-4</strong>, trained specifically for exam-style content. When you ask a question, Brainmate interprets the meaning, looks for the relevant concept, and then explains it in clear, easy-to-follow language. Instead of just giving you the answer, it helps you see how to reach it, so you actually learn from every interaction.
+          </p>
+
+          <p class="section-text">
+            Brainmate can clarify confusing terms, point out why other options are incorrect, offer short study tips related to the question, and even guide you through hard questions step by step so you can understand the reasoning behind them. Everything it provides stays strictly within the context of your practice content.
+          </p>
+        </div>
+
+        <!-- HOW TO USE TAB -->
+        <div class="tab-content" id="content-how">
+          <div class="illustration-box">
+            <img
+              src="/assets/brainmate-info-2.png"
+              class="illustration-image"
+              alt="How to use Brainmate"
+            />
+          </div>
+
+          <p class="section-text">
+            You can find Brainmate directly on each <strong>Question Screen</strong>, ready to assist whenever you need extra help.
+          </p>
+
+          <h3 class="subsection-title">Asking Questions</h3>
+          <p class="section-text">
+            When you’re unsure about a question, you can <strong>tap one of the suggested options</strong> or <strong>type your own question</strong> directly into the chat bar. Brainmate responds instantly with explanations, clarifications, or step-by-step reasoning—especially useful for <strong>hard or confusing questions</strong>.
+          </p>
+
+          <h3 class="subsection-title">Daily Limit</h3>
+          <p class="section-text">
+            Brainmate is free to use but currently supports <strong>up to 100 messages per day</strong>. This ensures smooth performance and fairness for everyone.
+          </p>
+
+          <h3 class="subsection-title">Tips for Effective Use</h3>
+          <ul class="tips-list">
+            <li><strong>Use quick options</strong> for fast, relevant support.</li>
+            <li><strong>Type your own questions</strong> when you want deeper explanations.</li>
+            <li><strong>Be clear and specific</strong> so Brainmate can help better.</li>
+            <li><strong>Stay focused on exam topics.</strong> Brainmate works only within your app’s content.</li>
+          </ul>
+        </div>
+
+        <!-- ACCURACY DISCLAIMER TAB -->
+        <div class="tab-content" id="content-accuracy">
+          <div class="illustration-box">
+            <img
+              src="/assets/brainmate-info-3.png"
+              class="illustration-image"
+              alt="Accuracy Disclaimer"
+            />
+          </div>
+
+          <h2 class="section-title">Why Brainmate Might Occasionally Be Wrong 🤔</h2>
+          <p class="section-text">
+            Brainmate uses natural language models that generate responses based on patterns from study materials—not human reasoning. This means it might misinterpret vague questions or phrase explanations imperfectly. It predicts what is most likely correct based on its training.
+          </p>
+
+          <h3 class="subsection-title">Limited Scope</h3>
+          <p class="section-text">
+            Brainmate only answers <strong>question-related content</strong> within the app. Asking about unrelated topics may lead to unreliable responses. It also doesn’t replace textbooks, instructors, or official resources.
+          </p>
+
+          <h3 class="subsection-title">Variations in Input</h3>
+          <p class="section-text">
+            Everyone writes differently. Slang, incomplete sentences, or overly technical phrasing may cause misunderstandings. Clear wording improves accuracy.
+          </p>
+
+          <h3 class="subsection-title">Data Limitations</h3>
+          <p class="section-text">
+            Brainmate is trained on curated educational material, but some explanations may reflect outdated or imperfect information. It has no access to real-time databases.
+          </p>
+
+          <h3 class="subsection-title">Continuous Improvement</h3>
+          <p class="section-text">
+            We refine Brainmate regularly using user feedback. If you find inaccurate or unclear responses, please let us know—your input helps improve Brainmate for everyone.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <div class="footer-container">
+        <div class="footer-links">
+          <a href="/privacy-policies.html">Privacy Policy</a>
+          <a href="/terms-of-use.html">Terms of Use</a>
+        </div>
+        <div class="footer-copyright">
+          © 2025 Brainmate — All rights reserved.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
